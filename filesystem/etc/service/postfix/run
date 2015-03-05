@@ -2,6 +2,20 @@
 
 exec 1>&2
 
+# from init.d script, seems to be necessary 
+FILES=" \
+	etc/localtime \
+	etc/services \
+	etc/resolv.conf \
+	etc/hosts \
+	etc/nsswitch.conf \
+	etc/nss_mdns.config \
+"
+for file in $FILES; do
+	cp /${file} /var/spool/postfix/${file}
+	chmod a+rX /var/spool/postfix/${file}
+done
+
 test -f /etc/default/postfix && . /etc/default/postfix
 
 command_directory=`postconf -h command_directory`

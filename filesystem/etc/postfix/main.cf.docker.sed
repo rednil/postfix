@@ -1,1 +1,0 @@
-s/^myhostname.*/myhostname = $myhostname/ 

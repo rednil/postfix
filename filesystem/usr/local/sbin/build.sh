@@ -1,6 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
+sed-build.sh
 postfix.sh
+
+ln -s /usr/local/sbin/run.sh /etc/my_init.d/10_run.sh
 
 #postconf -e 'home_mailbox = Maildir/'
 #postconf -e 'mailbox_command ='
